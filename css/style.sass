@@ -1,0 +1,368 @@
+\:root
+    --primary-light: #fff
+    --primary-medium: #b1b1b1
+    --secondary-medium: #cdcdcd
+    --primary-dark: #343434
+    --primary-yellow: #F1C410
+    --primary-orange: #F49C13
+
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap&subset=latin-ext')
+
+@mixin animated-bg
+    content: ''                
+    position: absolute                
+    width: 500px
+    height: 500px
+    border-radius: 50%
+    background: var(--primary-orange)
+    transform: scale(0)
+    transition: transform 0.4s ease-in-out
+    transform-origin: center center
+
+
+*,*::before,*::after
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+body, html
+  font-size: 10px
+  width: 100%
+  height: 100%
+  font-family: 'Open Sans',sans-serif
+  background: var(--primary-light)
+  color: var(--var-primary-dark)  
+body
+  overflow: hidden
+ul
+    list-style-type: none
+
+.container
+    width: 95%
+    margin: 0 auto
+.wrapper 
+    height: calc(100vh - 7rem);
+    min-height: 100%
+    overflow-y: scroll
+    scroll-snap-type: y mandatory
+    scroll-behavior: smooth
+    background: var(--primary-yellow)
+.active
+    color: var(--primary-dark)
+.small-text
+    text-align: center
+    color: #fff
+    font-size: 0.9rem   
+    a
+        font-style: italic
+        text-decoration: none
+        color: #fff
+        &:hover
+            text-decoration: underline
+            color: #ccc
+.open
+    height: 100vh
+    .hamburger-button    
+        display: none
+.hamburger-button
+    color: var(--primary-yellow)
+    position: relative
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    
+
+
+/* HEADER */
+header
+    height: 100vh    
+    background: linear-gradient(to top, rgba(#343434,0.7),transparent),url(../images/startup_hero1.jpg) 
+    background-repeat: no-repeat 
+    background-position: center
+    background-size: cover
+    display: flex
+    justify-content: center
+    align-items: flex-end
+    scroll-snap-align: center
+.brand-logo
+    width: 6rem 
+    display: none  
+.main-nav
+    font-size: 1.6rem 
+    display: flex    
+    align-items: center
+    justify-content: space-between   
+    padding: 0 30px
+    position: fixed    
+    align-self: flex-start
+    width: 100%    
+    z-index: 100
+    background: rgba(#343434,0.5)
+    transition: height 0.25s ease-in-out
+    &_links
+        display: flex
+        flex-direction: column
+        list-style: none        
+        width: 75%
+        justify-content: space-evenly
+        li
+            overflow: hidden
+            width: 100%
+            height: 100%            
+            position: relative  
+            display: flex
+            align-items: center
+            justify-content: center
+            &::before
+               +animated-bg 
+            &:hover::before
+                transform: scale(1)
+        a              
+            display: block
+            position: relative
+            z-index: 2
+            width: 100%
+            height: 100%
+            text-decoration: none
+            color: var(--primary-yellow)
+            font-size: 2.5rem
+            text-transform: lowercase
+            text-align: center
+            padding: 15px
+            transition: color 0.2s ease-in-out 0.2s           
+            &:hover
+                color: var(--primary-dark)
+.cta
+    overflow: hidden
+    position: relative
+    margin-bottom: 200px    
+    transition: background-color 0.3s ease-in-out, color 0.2s ease-in-out 0.1s, border-color 0.2s ease-in-out 0.1s
+    display: flex
+    align-items: center
+    justify-content: center
+    a
+        display: block    
+        width: 100%
+        height: 100%
+        font-size: 4rem
+        font-weight: bold
+        letter-spacing: 4px
+        text-decoration: none
+        color: var(--primary-yellow)
+        border: 0.4rem solid var(--primary-yellow)        
+        padding: 0.5rem 3rem    
+        z-index: 2
+        transition: color 0.2s ease-in-out 0.1s, border-color 0.2s ease-in-out 0.1s
+        &:hover        
+            color: var(--primary-dark)
+            border-color: var(--primary-dark)
+    &::before
+        +animated-bg         
+    &:active
+        transform: translateY(1px) scale(0.99)
+    &:hover::before
+        transform: scale(1)
+/* MAIN */
+main
+    min-height: 100vh 
+    width: 100%     
+section
+    padding-top: 7rem
+    width: 100%
+    min-height: 100vh 
+    display: grid  
+    grid-template-columns: 1fr
+    grid-template-rows: 1fr 1fr
+    grid-gap: 1rem
+    scroll-snap-align: start    
+    color: var(--primary-dark)  
+    h2  
+        text-align: center
+        font-size: 3rem        
+        background: var(--primary-orange)
+        padding: 0.5rem 1rem
+        span
+            color: #fff
+    figure
+        display: block
+        width: 100%
+        grid-row: 2 / -1
+        overflow: hidden
+        img
+            display: block
+            object-fit: cover
+            width: 100%
+            height: 100%
+article
+    grid-column: 1 / 2       
+    height: 100%   
+    border-bottom: 1px solid rgba(#343434,0.5) 
+    p
+        font-size: 1.6rem
+        letter-spacing: 1px
+        color: var(--primary-dark)
+        padding: 1rem
+    h2
+        font-size: 3rem
+        padding: 1rem
+
+/* #PRODUCT */
+#product  
+    h4
+        font-size: 2rem
+        padding: 1rem
+    ul
+        font-size: 1.6rem
+        list-style: initial
+        list-style-position: inside
+        padding: 1rem
+    table
+        width: 100%
+        border-collapse: collapse
+        font-size: 1.6rem        
+    table,th,td
+        border: 1px solid var(--primary-dark) 
+        text-align: center   
+    th
+        background: var(--primary-orange)    
+    th,td
+        padding: 0.5rem 1rem
+    .cta        
+        margin: 5rem auto
+        max-width: 50%
+        a
+            border-color: var(--primary-dark)
+            color: var(--primary-dark)
+            font-size: 2rem
+            text-align: center
+            padding: 1.5rem
+
+            
+
+/* #CONTACT */
+#contact  
+    min-height: 25vh   
+    grid-template-rows: 1fr    
+    article       
+        grid-column: span 2
+        display: grid
+        grid-template-columns: 1fr
+        grid-template-rows: repeat(3,auto)
+        grid-gap: 1rem
+        border-bottom: none
+    h2        
+        grid-row: 1 / 2
+        margin-bottom: 1rem
+    ul
+        font-size: 2rem
+        line-height: 2
+        padding: 1rem
+    form
+        padding: 1rem
+        display: flex
+        flex-direction: column        
+        & > *
+            margin: 1rem 0
+            padding: 0.5rem
+            outline: none
+        button
+            font-size: 2rem            
+            padding: 1rem 3rem
+            align-self: flex-end
+            color: var(--primary-dark)
+            border: 2px solid var(--primary-dark)
+            background: var(--primary-orange)
+            cursor: pointer
+            &:active
+                transform: translateY(1px) scale(0.99)
+        input,textarea
+            font-family: 'Open Sans', sans-serif
+            font-size: 2rem
+            color: var(--primary-dark)
+            border: 2px solid trasparent            
+            resize: none
+            &:focus
+                border-color: var(--primary-dark)
+    .social-links
+        display: flex
+        justify-content: flex-start
+        align-items: center 
+        padding-left: 1rem
+        strong
+            font-size: 2rem 
+            flex-basis: 30%                               
+        .fa
+            font-size: 3rem          
+        .fa-twitter
+            color: #00aced
+        .fa-facebook-f
+            color: #4267B2
+        .fa-linkedin
+            color: #0e76a8
+    .social-links_icons
+        flex-basis: 70%
+        display: flex
+        justify-content: space-around
+
+/* #ABOUT */
+#about        
+    .hand-signature
+        float: right
+    article
+        grid-column: 1 / -1
+    figure
+        grid-column: 1 / -1
+        grid-row: 2 / -1
+/* FOOTER */
+footer
+    padding: 4rem
+    font-size: 1.6rem
+    background: var(--primary-dark)
+    text-align: center
+    font-weight: bold
+    color: var(--primary-yellow)
+    scroll-snap-align: start
+    .brand-logo
+        width: 40px 
+/* media queries */
+@media (min-width: 768px)
+    section
+        grid-template-columns: 1fr 1fr
+        grid-template-rows: 1fr
+    article
+        grid-column: 1 / 2 
+    figure
+        display: block
+        width: 100%
+        grid-column: 2 / -1
+        overflow: hidden
+    #product
+        figure
+            grid-row: 1 / 2
+        .cta            
+            max-width: 25%
+            a
+                padding: 1.5rem 2rem
+    #contact  
+        min-height: 50vh    
+        article       
+            display: grid
+            grid-template-columns: 1fr 1fr
+            grid-template-rows: auto 1fr
+        h2
+            grid-column: span 2
+    #about
+        article
+            grid-column: 2 / -1
+        figure
+            grid-column: 1 / 2
+            grid-row: 1 / 2 
+    .main-nav
+        height: 7rem
+        &_links
+            flex-direction: row        
+    .brand-logo
+        width: 6rem 
+        display: inline
+    .hamburger-button
+        display: none
