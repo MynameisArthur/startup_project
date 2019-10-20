@@ -12,16 +12,25 @@
 <body>
         <div class="wrapper">
             <header id="header">
-                <nav class="main-nav">
-                    <a href="#!" class="hamburger-button"><i class="fa fa-bars"></i></a>
-                    <a href="#!"><img src="images/star_icon.png" alt="BrightStar logo" class="brand-logo"></a>
-                    <ul class="container main-nav_links">
-                        <li><a href="#header">Home</a></li>
-                        <li><a href="#product">Product</a></li>                
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
+                <nav class="main-nav">  
+                    <div class="container">
+                        <a href="#!"><img src="images/star_icon.png" alt="BrightStar logo" class="brand-logo"></a>
+                        <input type="checkbox" class="toggle-nav" id="toggle-nav">
+                        <label for="toggle-nav" class="toggle-nav-label">
+                            <span></span>
+                        </label>
+                        <ul class="main-nav_links">
+                            <li><a href="#header">Home</a></li>
+                            <li><a href="#product">Product</a></li>                
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
                 </nav>
+                <article class="tagline">
+                    <h1><span>BRIGHT</span>STAR<img src="images/star_icon.png" alt="BrightStar logo"></h1>                    
+                    <h5>Nam ducimus voluptas culpa incidunt!</h5>
+                </article>
                 <div class="cta">
                     <a href="https://mailchi.mp/e4ed6a77ecfd/ztmstudents" target="_blank">subscribe</a>
                 </div>
@@ -107,26 +116,26 @@
                                     <a href="#!" title="BrightStar Facebook page"><i class="fa fa-facebook-f"></i></i></a>
                                     <a href="#!" title="BrightStar LinkedIn page"><i class="fa fa-linkedin"></i></a>
                                 </div>
-
-
                             </div>
                         </div>
-                        <form>                           
-                            <input type="text" name="title" placeholder="title">
-                            <textarea name="text" cols="30" rows="10" placeholder="ask us questions"></textarea>
-                            <button>send</button>
-                        </form>
+
+                        <div class="comment-form">
+                            <h4>Comment our product</h4>
+                            <form>                           
+                                <input type="text" name="title" placeholder="title">
+                                <textarea name="text" cols="30" rows="10" placeholder="your opinion"></textarea>
+                                <button><span>send</span></button>
+                            </form>
+                        </div>
+
                     </article>
                 </section>
             </main>
-            <footer>
-                <div>
-                    <img src="images/star_icon.png" alt="BrightStar logo" class="brand-logo">
-                </div>
+            <footer>                
+                <img src="images/star_icon.png" alt="BrightStar logo" class="brand-logo">
                 <p class="container">&copy;2019 BrightStar</p>
-                <p class="small-text">made by <a href="https://twitter.com/ArthurNova2" target="blank">Arthur Domański</a></p>
+                <p class="small-text">made by <a href="https://github.com/MynameisArthur" target="blank">Arthur Domański</a></p>
             </footer>     
-        </div>
-    <script src="js/main.js"></script>
+        </div>    
 </body>
 </html>

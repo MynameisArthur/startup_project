@@ -1,7 +1,5 @@
 \:root
-    --primary-light: #fff
-    --primary-medium: #b1b1b1
-    --secondary-medium: #cdcdcd
+    --primary-light: #fff    
     --primary-dark: #343434
     --primary-yellow: #F1C410
     --primary-orange: #F49C13
@@ -26,11 +24,10 @@
   padding: 0
   box-sizing: border-box
 body, html
-  font-size: 10px
+  font-size: 8px
   width: 100%
   height: 100%
-  font-family: 'Open Sans',sans-serif
-  background: var(--primary-light)
+  font-family: 'Open Sans',sans-serif  
   color: var(--var-primary-dark)  
 body
   overflow: hidden
@@ -60,18 +57,6 @@ ul
         &:hover
             text-decoration: underline
             color: #ccc
-.open
-    height: 100vh
-    .hamburger-button    
-        display: none
-.hamburger-button
-    color: var(--primary-yellow)
-    position: relative
-    top: 50%
-    left: 50%
-    transform: translate(-50%, -50%)
-    
-
 
 /* HEADER */
 header
@@ -81,30 +66,99 @@ header
     background-position: center
     background-size: cover
     display: flex
+    flex-direction: column
     justify-content: center
-    align-items: flex-end
-    scroll-snap-align: center
+    align-items: center
+    scroll-snap-align: center    
+    .cta
+        margin-top: 2rem
+        max-width: 60%
 .brand-logo
     width: 6rem 
-    display: none  
+    position: absolute
+    top: 0.5em
+    left: 1em
+.toggle-nav
+    display: none 
+    &:checked ~ .main-nav_links    
+        height: 15em        
+    &:checked + label 
+        span
+            background-color: transparent
+        span::before
+            transform: rotate(45deg)
+            bottom: 0em
+        span::after
+            transform: rotate(-45deg)
+            top: 0em
+.toggle-nav-label    
+    width: 3em
+    height: 3em
+    cursor: pointer
+    position: absolute
+    right: 1em     
+    top: 1em
+    display: flex
+    align-items: center    
+    span, span::before,span::after        
+        display: block
+        background: var(--primary-yellow)
+        height: 2px
+        width: 100%
+        border-radius: 2px
+        position: relative
+        transition: transform 0.3s ease-in-out, bottom 0.3s ease-in-out, top 0.3s ease-in-out,background-color 0.3s ease-in-out
+    span::before,span::after
+        content: ''
+        position: absolute
+        transform-origin: center
+    span::before
+        bottom: 0.7em
+    span::after
+        top: 0.7em    
+.tagline
+    border-bottom: none    
+    height: auto
+    max-width: 96%    
+    color: var(--primary-orange)
+    background: rgba(#343434,0.5)
+    padding: 2rem 4rem
+    position: relative
+    text-align: center    
+    img
+        width: 3.5rem
+        height: 3.5rem
+    h1
+        font-size: 4rem
+        letter-spacing: 0.3rem        
+        border-bottom: 0.5rem solid var(--primary-yellow) 
+        span
+            color: var(--primary-yellow)
+    h5
+        font-size: 1.5rem
+               
 .main-nav
+    position: fixed  
+    top: 0  
     font-size: 1.6rem 
     display: flex    
     align-items: center
     justify-content: space-between   
-    padding: 0 30px
-    position: fixed    
+    padding: 0 30px 30px
     align-self: flex-start
-    width: 100%    
+    width: 100% 
+    min-height: 5em   
     z-index: 100
-    background: rgba(#343434,0.5)
-    transition: height 0.25s ease-in-out
+    background: rgba(#343434,0.75)    
     &_links
         display: flex
         flex-direction: column
         list-style: none        
-        width: 75%
+        width: 50%        
+        margin: 3em auto 0       
         justify-content: space-evenly
+        height: 0
+        transition: height 0.3s ease-in-out
         li
             overflow: hidden
             width: 100%
@@ -128,14 +182,15 @@ header
             font-size: 2.5rem
             text-transform: lowercase
             text-align: center
-            padding: 15px
+            display: flex
+            align-items: center
+            justify-content: center
             transition: color 0.2s ease-in-out 0.2s           
             &:hover
                 color: var(--primary-dark)
 .cta
     overflow: hidden
-    position: relative
-    margin-bottom: 200px    
+    position: relative      
     transition: background-color 0.3s ease-in-out, color 0.2s ease-in-out 0.1s, border-color 0.2s ease-in-out 0.1s
     display: flex
     align-items: center
@@ -144,9 +199,9 @@ header
         display: block    
         width: 100%
         height: 100%
-        font-size: 4rem
+        font-size: 2.5rem
         font-weight: bold
-        letter-spacing: 4px
+        letter-spacing: 0.2rem
         text-decoration: none
         color: var(--primary-yellow)
         border: 0.4rem solid var(--primary-yellow)        
@@ -167,7 +222,7 @@ main
     min-height: 100vh 
     width: 100%     
 section
-    padding-top: 7rem
+    padding-top: 8rem
     width: 100%
     min-height: 100vh 
     display: grid  
@@ -236,9 +291,7 @@ article
             font-size: 2rem
             text-align: center
             padding: 1.5rem
-
             
-
 /* #CONTACT */
 #contact  
     min-height: 25vh   
@@ -257,6 +310,45 @@ article
         font-size: 2rem
         line-height: 2
         padding: 1rem
+    .social-links
+        display: flex
+        justify-content: flex-start
+        align-items: center 
+        padding-left: 1rem
+        a
+            text-decoration: none
+        strong
+            font-size: 2rem 
+            flex-basis: auto  
+            margin-right: 1.5rem                            
+        .fa
+            font-size: 4rem   
+            transition: text-shadow 0.3s ease-in-out                        
+            &:hover
+                 text-shadow: 1px 1px 3px var(--primary-dark)
+            &:active
+                transform: scale(0.99) translateY(1px)
+        .fa-twitter
+            color: #00aced
+        .fa-facebook-f
+            color: #4267B2
+        .fa-linkedin
+            color: #0e76a8
+    .social-links_icons
+        flex-basis: 40%
+        display: flex
+        justify-content: flex-start        
+        a
+            margin-right: 2.5rem
+.contact-info
+    border: 1px solid var(--primary-dark)
+    padding: 1.5rem 1rem 2rem
+    margin-bottom: 1.5rem
+.comment-form
+    @extend .contact-info
+    h4
+        font-size: 2rem
+        text-align: center
     form
         padding: 1rem
         display: flex
@@ -266,13 +358,36 @@ article
             padding: 0.5rem
             outline: none
         button
-            font-size: 2rem            
-            padding: 1rem 3rem
+            font-size: 2rem 
+            width: 8em
+            height: 2.5em
             align-self: flex-end
             color: var(--primary-dark)
             border: 2px solid var(--primary-dark)
-            background: var(--primary-orange)
+            background: transparent
             cursor: pointer
+            display: flex
+            justify-content: center
+            align-items: center
+            position: relative
+            overflow: hidden
+            z-index: 2
+            transform: translateZ(10px)
+            span
+                position: absolute
+                z-index: 2
+                display: block                          
+                text-align: center
+                line-height: 2em                
+                font-size: 2rem
+                letter-spacing: 0.4rem
+            &::after
+                +animated-bg 
+                content: 'send' 
+                color: var(--primary-dark)              
+                z-index: 1
+            &:hover::after
+                transform: scale(1)
             &:active
                 transform: translateY(1px) scale(0.99)
         input,textarea
@@ -283,26 +398,7 @@ article
             resize: none
             &:focus
                 border-color: var(--primary-dark)
-    .social-links
-        display: flex
-        justify-content: flex-start
-        align-items: center 
-        padding-left: 1rem
-        strong
-            font-size: 2rem 
-            flex-basis: 30%                               
-        .fa
-            font-size: 3rem          
-        .fa-twitter
-            color: #00aced
-        .fa-facebook-f
-            color: #4267B2
-        .fa-linkedin
-            color: #0e76a8
-    .social-links_icons
-        flex-basis: 70%
-        display: flex
-        justify-content: space-around
+    
 
 /* #ABOUT */
 #about        
@@ -321,11 +417,19 @@ footer
     text-align: center
     font-weight: bold
     color: var(--primary-yellow)
-    scroll-snap-align: start
+    scroll-snap-align: start    
     .brand-logo
+        position: relative
+        top: -1rem   
+        transform: translateX(-50%)       
         width: 40px 
+        height: 40px
 /* media queries */
 @media (min-width: 768px)
+    .container
+        width: 85%
+    body
+        font-size: 10px
     section
         grid-template-columns: 1fr 1fr
         grid-template-rows: 1fr
@@ -340,7 +444,7 @@ footer
         figure
             grid-row: 1 / 2
         .cta            
-            max-width: 25%
+            max-width: 50%
             a
                 padding: 1.5rem 2rem
     #contact  
@@ -359,10 +463,35 @@ footer
             grid-row: 1 / 2 
     .main-nav
         height: 7rem
+        padding-bottom: 0
         &_links
-            flex-direction: row        
-    .brand-logo
-        width: 6rem 
-        display: inline
-    .hamburger-button
+            width: 70%
+            flex-direction: row  
+            height: 4em
+            margin: 0 auto  
+    .toggle-nav-label
         display: none
+    .cta
+        a
+            font-size: 3rem
+            letter-spacing: 0.3rem
+@media (min-width: 950px)
+    .container
+        width: 70%
+    .tagline        
+        max-width: 70%  
+        img
+            width: 5rem
+            height: 5rem
+        h1
+            font-size: 7rem
+            letter-spacing: 0.5rem 
+        h5
+            font-size: 2.5rem            
+            margin-top: -0.5rem
+    #product .cta
+        max-width: 40%
+    .cta
+        a
+            font-size: 4rem
+            letter-spacing: 0.4rem
